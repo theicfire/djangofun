@@ -35,7 +35,7 @@ def blog_detail(request, id, showComments=False):
     else:
     	form = CommentForm()						#END LAB06
     t = loader.get_template('blog/detail.html')
-    c = Context({'blog':blog, 'comments':comments, 'form':form.as_p(), 'request':request})	#LAB06
+    c = RequestContext(request, {'blog':blog, 'comments':comments, 'form':form.as_p()})	#LAB06
     return HttpResponse(t.render(c))
     #return HttpResponse('gets the specific details page')
 
