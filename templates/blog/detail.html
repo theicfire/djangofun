@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h2>{{ blog.title }}</h2>
+<ul>
+  <div>Created: {{ blog.created }}</div>
+  <div>Last updated: {{ blog.updated }}</div>
+  <div>{{ blog.body|linebreaks }}</div>
+</ul>
+<h3>Comments</h3>
+<ul>
+  {% for comm in comments %}
+     <div>{{ comm.author }} on {{comm.created}} said ...</div>
+	 <ul>
+	   <div>{{ comm.body|linebreaks }}</div>
+	   <div>Last updated on {{ comm.updated }}</div>           
+	{% if request.user.username == comm.author %}<div><a href="/blog/editcomment/{{ comm.id }}">Edit Comment</a></div> {% endif %}
+	 </ul>
+  {% endfor %}
+  <br />
+{% if request.user.is_authenticated %}
+  <div>New Comment from {{ request.user.username }}</div>
+      <form method='post' action="">
+        {{ form }}
+        <input type='submit' name='Submit'>
+      </form>
+{% endif %}
+</ul>
+{% endblock %}
