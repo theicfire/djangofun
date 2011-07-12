@@ -1,11 +1,12 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<ul class='listing'>
 {% for blog in blog_list %}
-	<h2><a href="/blog/detail/{{ blog.id }}/True">{{ blog.title }}</a></h2>
-	<ul>
-	  <div>Created: {{ blog.created }}</div>
-          <div>Last updated: {{ blog.updated }}</div>
-          <div>{{ blog.body|linebreaks }}</div>            
-	</ul>
+	
+	<li>
+	<a href="/blog/detail/{{ blog.id }}/True">{{ blog.title }}</a> &mdash; {{ blog.created }}
+	</li>
+	 
 {% endfor %}
+</ul>
 {% endblock %}

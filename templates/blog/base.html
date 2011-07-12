@@ -4,9 +4,135 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>My Blog</title>
+  <style type="text/css">
+  body {
+  	margin: 0px;
+  	padding:0px;
+  	font-family: Verdana,Arial,Helvetica,sans-serif;
+  }
+  #content {
+  	margin: 5px;
+  }
+  button {
+  	width:100%;
+ 	border:0px solid;
+  }
+  a:link, a:active, a:visited {
+    color: #6FA601;
+    text-decoration: none;
+	}
+h1 {
+color: #333333;
+font-size: 250%;
+font-weight:normal;
+letter-spacing: 0.025em;
+line-height: 1em;
+font-family: Georgia,"Times New Roman",Times,serif;
+margin: 5px 0px;
+}
+h2 {
+font-family: Georgia,"Times New Roman",Times,serif;
+font-weight:normal;
+margin: 5px 0px;	
+}
+b {
+color: #444444;
+}
+#blogContent{
+text-align:justify;
+padding: 5px;
+}
+
+.sub span {
+    display: block;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.bottomDot {
+background: url("http://www.lukew.com/images/dots.png") repeat-x scroll center bottom transparent;
+}
+.sub {
+    
+    margin-top: 2px;
+    padding-bottom: 5px;
+}
+
+textarea {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F9F9F9;
+    border-color: #A0A0A0 #C3C3C3 #DDDDDD;
+    border-style: solid;
+    border-width: 1px;
+    color: #222222;
+    display: block;
+    margin-bottom: 10px;
+    padding: 2px 3px;
+    width: 300px;
+}
+
+input[type="submit"] {
+    background-color: #F5F5F5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px 2px 2px 2px;
+    color: #666666;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    height: 29px;
+    line-height: 27px;
+    margin: 3px 0px;
+    min-width: 54px;
+    padding: 0 8px;
+    text-align: center;
+}
+input {
+    -moz-box-sizing: content-box;
+    -moz-padding-end: 0;
+    -moz-padding-start: 0;
+}
+input {
+    -moz-box-sizing: content-box;
+}
+input {
+    font-family: inherit;
+}
+textarea {
+    color: #444444;
+    font: 0.9em 'Lucida Grande',arial,sans-serif;
+}
+
+cite {
+    color: #999999;
+    font-size: 83%;
+    display:block;
+}
+.right {
+float:right;
+}
+  
+li {
+	color: #666666;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	font-size: 90%;
+	list-style-type: none;
+}
+ul {
+	margin-left: 10px;
+	padding: 0px;
+}
+ul.listing li {
+	background: url("http://www.lukew.com/images/bullet_icon.gif") no-repeat scroll 0 7px transparent;
+	margin: 0 5px 0 20px;
+	padding: 0 0 0 10px;
+}
+  </style>
 </head>
 <body>
-  <a href="/blog/list"><h1>My Blog</h1></a>
+  <a href="/blog/list"><button>My Blog</button></a>
   <div id="content">
     {% block content %}
     {% endblock %}

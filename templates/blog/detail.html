@@ -1,28 +1,26 @@
 {% extends "blog/base.html" %}
 {% block content %}
-<h2>{{ blog.title }}</h2>
-<ul>
-  <div>Created: {{ blog.created }}</div>
-  <div>Last updated: {{ blog.updated }}</div>
-  <div>{{ blog.body|linebreaks }}</div>
-</ul>
-<h3>Comments</h3>
-<ul>
+<h1>{{ blog.title }}</h1>
+<cite class="sub bottomDot"><span class="right">{{ blog.created }}</span><span>by Chase Lambert</span></cite>
+  <div id="blogContent">{{ blog.body}}</div>
+<h2 class='bottomDot'>Comments</h2>
+<ul class="commentList">
   {% for comm in comments %}
-     <div>{{ comm.author }} on {{comm.created}} said ...</div>
-	 <ul>
-	   <div>{{ comm.body|linebreaks }}</div>
-	   <div>Last updated on {{ comm.updated }}</div>           
-	{% if user.username == comm.author %}<div><a href="/blog/editcomment/{{ comm.id }}">Edit Comment</a></div> {% endif %}
-	 </ul>
+  <li>
+     <div>
+     {% if user.username == comm.author %}<span><a href="/blog/editcomment/{{ comm.id }}">[Edit]</a></span> {% endif %}
+     <b>{{ comm.author }}</b>:<cite class='right'>{{comm.created}}</span></div>
+	   <div>{{ comm.body }}</div>
+	
+</li>
   {% endfor %}
-  <br />
+</ul>
 {% if user.is_authenticated %}
-  <div>New Comment from {{ user.username }}</div>
+<h2 class='bottomDot'>Add Comment</h2>
       <form method='post' action="">
         {{ form }}
-        <input type='submit' name='Submit'>
+        <input type='submit' name='Submit' value='Reply'>
       </form>
 {% endif %}
-</ul>
+
 {% endblock %}
